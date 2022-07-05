@@ -1,9 +1,9 @@
-﻿Imports System.IO, System.Net, System.Web
+﻿Imports System.IO, System.Net, System.Web, Microsoft.Win32
 
 Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create("http://update.nicoaut.com/Notepad-Studio/Version.txt")
+            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create("http://updatemanager.techlast.io/Notepad-Studio/Version.txt")
             Dim response As System.Net.HttpWebResponse = request.GetResponse()
             Dim sr As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
             Dim newestversion As String = sr.ReadToEnd
@@ -210,7 +210,7 @@ Public Class MainForm
 
     Private Sub NachUpdatesSuchenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NachUpdatesSuchenToolStripMenuItem.Click
         Try
-            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create("http://update.nicoaut.com/Notepad-Studio/Version.txt")
+            Dim request As System.Net.HttpWebRequest = System.Net.HttpWebRequest.Create("http://updatemanager.techlast.io/Notepad-Studio/Version.txt")
             Dim response As System.Net.HttpWebResponse = request.GetResponse()
             Dim sr As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
             Dim newestversion As String = sr.ReadToEnd
@@ -218,7 +218,7 @@ Public Class MainForm
             If newestversion > currentversion Then
                 Select Case MessageBox.Show("Es ist ein Update verfügbar! Möchten Sie auf die Downloadseite verbunden werden, um das Update herunterzuladen?", "Update Manager", MessageBoxButtons.YesNo)
                     Case Windows.Forms.DialogResult.Yes
-                        Process.Start("https://github.com/NicoAUT/Notepad-Studio/release")
+                        Process.Start("https://github.com/TECHLAST/Notepad-Studio/release")
                     Case Windows.Forms.DialogResult.No
 
                 End Select
@@ -363,7 +363,7 @@ Public Class MainForm
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         Select Case MessageBox.Show("Es ist ein Update verfügbar! Möchten Sie auf die Downloadseite verbunden werden, um das Update herunterzuladen?", "Update Manager", MessageBoxButtons.YesNo)
             Case Windows.Forms.DialogResult.Yes
-                Process.Start("https://github.com/NicoAUT/Notepad-Studio/release")
+                Process.Start("https://github.com/TECHLAST/Notepad-Studio/release")
             Case Windows.Forms.DialogResult.No
 
         End Select
